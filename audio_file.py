@@ -5,6 +5,7 @@ import pandas as pd
 import datetime
 import matplotlib.dates as matdates
 
+
 class AudioFile(object):
     def __init__(self, file_path, data=None, sample_rate=None):
         self.file_path = file_path
@@ -52,10 +53,8 @@ class AudioFile(object):
                 loudness_df.loc[end_time] = loudness
 
         if plot is not None:
-            loudness_df.to_pickle('/tmp/loudness_test.p')
             ax1 = loudness_df.plot(title=self.file_path, ylim=(-30, -5), grid=True,
                                    ax=axes[plot] if axes is not None else None)
-            # ax1.xaxis.set_major_locator(matdates.SecondLocator(bysecond=list(range(0, 60, 10))))
             if short_target:
                 ax1.axhline(y=short_target, color='red')
 
