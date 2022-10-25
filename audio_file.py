@@ -76,8 +76,9 @@ class AudioFile(object):
 
     def samples_to_time(self, samples):
         m, s = divmod(self.samples_to_seconds(samples), 60)
+        h, m = divmod(m, 60)
         micro = int((s % 1) * 1e6)
-        return datetime.time(minute=int(m), second=int(s), microsecond=int(micro))
+        return datetime.time(hour=int(h), minute=int(m), second=int(s), microsecond=int(micro))
 
     def __len__(self):
         return self.data.shape[0]
