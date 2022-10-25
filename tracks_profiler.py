@@ -9,7 +9,13 @@ plt.close('all')
 audio_ext = {'wav',}
 
 def rm_non_audio(file_list):
-    return [f for f in file_list if f.split('.')[-1] in audio_ext]
+    new_file_list = []
+    for f in file_list:
+        if f.split('.')[-1] in audio_ext:
+            new_file_list.append(f)
+        else:
+            print(f"Ignoring file: {f}. Supported file extensions: {audio_ext}")
+    return new_file_list
 
 
 def dir_to_files(files):
