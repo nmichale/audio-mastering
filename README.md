@@ -1,9 +1,11 @@
 # audio-mastering
 Library that displays loudness (LUFS) statistics and plots for .wav audio files (single or multiple).
 
-Run the driver `tracks_profiler.py` with the following options.
+Run the driver `python tracks_profiler.py` from command line with the following options:
 
 ```
+python tracks_profiler.py --help
+
 Usage: tracks_profiler.py [OPTIONS]
 
 Options:
